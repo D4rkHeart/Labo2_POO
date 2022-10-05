@@ -1,0 +1,6 @@
+a.txt
+*.dll
+*.csproj
+obj/
+bin/
+.vscode/
