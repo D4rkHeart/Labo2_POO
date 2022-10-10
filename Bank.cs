@@ -6,9 +6,15 @@ class Bank
     //Méthode qui enregistre un client 
     public Customer RegisterCustomer (String FirstName, String LastName)
     {
-        Customer returnedCustomer = new Customer(FirstName,LastName);
-        this.Customers.Add(returnedCustomer);
-        return returnedCustomer;
+        
+        Customer? customer = this.Customers.Find(x => x.FirstName == FirstName && x.LastName == LastName);
+        if(customer == null)
+        {
+            customer = new Customer(FirstName,LastName);
+            this.Customers.Add(customer);
+        }
+        
+        return customer;
         
     }
 
@@ -17,7 +23,6 @@ class Bank
         Customer Owner = this.RegisterCustomer(FirstName,LastName);
         BankAccount account = new BankAccount(Owner);
         this.BankAccounts.Add(account);
-        
         return account;
     }
 

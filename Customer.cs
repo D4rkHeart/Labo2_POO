@@ -2,6 +2,9 @@ class Customer
 {
     public String FirstName;
     public String LastName;
+
+    public int age; 
+    
     public Customer(String firstname, String lastname) 
     {
         this.FirstName = firstname;
